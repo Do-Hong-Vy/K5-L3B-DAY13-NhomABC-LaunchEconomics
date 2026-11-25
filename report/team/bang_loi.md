@@ -4,7 +4,7 @@
 
 ## Hai bộ nhãn độc lập
 
-Người gắn nhãn 1: Phạm Hà Nam · Người gắn nhãn 2: Nguyễn Trung Dũng. Người gắn nhãn 2 đã xem đáp án và nhãn người 1; chưa có bộ nhãn tự đánh giá và chưa thể ghi nhận hai bộ nhãn độc lập.
+Người gắn nhãn 1: Phạm Hà Nam · Người gắn nhãn 2: Nguyễn Trung Dũng. Người gắn nhãn 2 đã xem nhãn tham khảo và nhãn người 1; chưa có hai bộ nhãn độc lập.
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn đề xuất, chờ thống nhất |
 | --: | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ Người gắn nhãn 1: Phạm Hà Nam · Người gắn nhãn 2: Nguyễn Trung
 | 19 | Giới hạn hệ thống | Chờ | Chờ | Giới hạn hệ thống |
 | 20 | Hệ thống | Chờ | Chờ | Hệ thống |
 
-**Tỉ lệ đồng thuận:** Chưa tính được do chưa có hai bộ nhãn độc lập. Cột đề xuất dựa trên nhãn tham khảo trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md` và cần Nam và Dũng xác nhận trước khi coi là thống nhất.
+**Tỉ lệ đồng thuận:** Chưa tính được vì chưa có hai bộ nhãn độc lập. Nhãn đề xuất dựa trên hướng dẫn trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md`, đang chờ Nam và Dũng xác nhận.
 
 ## Quy tắc phân biệt cho các ca không trùng
 

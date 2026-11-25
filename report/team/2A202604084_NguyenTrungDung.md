@@ -28,4 +28,4 @@ Dùng Codex để đọc hướng dẫn, đề xuất cách khắc phục và t�
 
 ## 6. Tự đánh giá
 
-Đã chuẩn bị hồ sơ theo kết quả hiện có; cần cập nhật khi nhóm hoàn thành kế hoạch pilot, đồng thời làm rõ yêu cầu gắn nhãn độc lập.
+Đã chuẩn bị hồ sơ theo kết quả hiện có; đã cập nhật số liệu từ kế hoạch pilot; cần nhóm rà soát luật dừng và xác nhận nhãn lỗi.
