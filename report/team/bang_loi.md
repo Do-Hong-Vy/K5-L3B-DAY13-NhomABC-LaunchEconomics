@@ -6,30 +6,30 @@
 
 Người gắn nhãn 1: Phạm Hà Nam · Người gắn nhãn 2: Nguyễn Trung Dũng. Người gắn nhãn 2 đã xem đáp án và nhãn người 1; chưa có bộ nhãn tự đánh giá và chưa thể ghi nhận hai bộ nhãn độc lập.
 
-| Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
+| Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn đề xuất, chờ thống nhất |
 | --: | --- | --- | --- | --- |
-| 1 | Do người dùng | ... | ... | ... |
-| 2 | Hệ thống | ... | ... | ... |
-| 3 | Ngữ cảnh | ... | ... | ... |
-| 4 | Giới hạn hệ thống | ... | ... | ... |
-| 5 | Ngầm | ... | ... | ... |
-| 6 | Do người dùng | ... | ... | ... |
-| 7 | Hệ thống | ... | ... | ... |
-| 8 | Hệ thống | ... | ... | ... |
-| 9 | Do người dùng | ... | ... | ... |
-| 10 | Ngữ cảnh | ... | ... | ... |
-| 11 | Giới hạn hệ thống | ... | ... | ... |
-| 12 | Ngầm | ... | ... | ... |
-| 13 | Giới hạn hệ thống | ... | ... | ... |
-| 14 | Do người dùng | ... | ... | ... |
-| 15 | Hệ thống | ... | ... | ... |
-| 16 | Ngữ cảnh | ... | ... | ... |
-| 17 | Ngầm | ... | ... | ... |
-| 18 | Ngữ cảnh | ... | ... | ... |
-| 19 | Giới hạn hệ thống | ... | ... | ... |
-| 20 | Hệ thống | ... | ... | ... |
+| 1 | Do người dùng | Chờ | Chờ | Do người dùng |
+| 2 | Hệ thống | Chờ | Chờ | Hệ thống |
+| 3 | Ngữ cảnh | Chờ | Chờ | Ngữ cảnh |
+| 4 | Giới hạn hệ thống | Chờ | Chờ | Giới hạn hệ thống |
+| 5 | Ngầm | Chờ | Chờ | Ngầm |
+| 6 | Do người dùng | Chờ | Chờ | Do người dùng |
+| 7 | Hệ thống | Chờ | Chờ | Hệ thống |
+| 8 | Hệ thống | Chờ | Chờ | Hệ thống |
+| 9 | Do người dùng | Chờ | Chờ | Do người dùng |
+| 10 | Ngữ cảnh | Chờ | Chờ | Ngữ cảnh |
+| 11 | Giới hạn hệ thống | Chờ | Chờ | Giới hạn hệ thống |
+| 12 | Ngầm | Chờ | Chờ | Ngầm |
+| 13 | Giới hạn hệ thống | Chờ | Chờ | Giới hạn hệ thống |
+| 14 | Do người dùng | Chờ | Chờ | Do người dùng |
+| 15 | Hệ thống | Chờ | Chờ | Hệ thống |
+| 16 | Ngữ cảnh | Chờ | Chờ | Ngữ cảnh |
+| 17 | Ngầm | Chờ | Chờ | Ngầm |
+| 18 | Ngữ cảnh | Chờ | Chờ | Ngữ cảnh |
+| 19 | Giới hạn hệ thống | Chờ | Chờ | Giới hạn hệ thống |
+| 20 | Hệ thống | Chờ | Chờ | Hệ thống |
 
-**Tỉ lệ đồng thuận:** Chưa tính được do chưa có hai bộ nhãn độc lập.
+**Tỉ lệ đồng thuận:** Chưa tính được do chưa có hai bộ nhãn độc lập. Cột đề xuất dựa trên nhãn tham khảo trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md` và cần Nam và Dũng xác nhận trước khi coi là thống nhất.
 
 ## Quy tắc phân biệt cho các ca không trùng
 
