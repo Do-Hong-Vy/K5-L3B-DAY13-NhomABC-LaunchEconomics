@@ -19,8 +19,9 @@
 
 ## 4. Bằng chứng
 
-- `report/team/ho_so_launch_v0.md` và `report/team/group_report.md`: tổng hợp kết quả và điều kiện pilot.
-- `report/team/bang_loi.md`: 20 nhãn thống nhất và 5 đề xuất khắc phục; chưa có hai bộ nhãn độc lập.
+- PR #8 (`e0a7d19`), PR #12 (`bf624d6`), PR #13 (`3d51504`):
+  - `report/team/ho_so_launch_v0.md` và `report/team/group_report.md`: tổng hợp kết quả và điều kiện pilot.
+  - `report/team/bang_loi.md`: 20 nhãn thống nhất và 5 đề xuất khắc phục; chưa có hai bộ nhãn độc lập.
 
 ## 5. Công cụ AI đã dùng
 
