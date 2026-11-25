@@ -4,7 +4,7 @@ CP1 do Lê Khánh Cường tính độc lập từ hai CSV bằng Python chuẩn
 
 **Trạng thái: Đã đối chiếu bằng công cụ với output CP1 của Vỹ ngày 25/11/2026.** CP1 đã merge tại `c0be8ea` (PR #1); bản kiểm tra là `9f76372` sau khi cập nhật `origin/main`. Code chạy hết, ba phép thử A1 đạt; kết quả A2–A4 khớp phép tính độc lập bên dưới. Cường vẫn cần tự kiểm chứng phép tính và xác nhận phần đóng góp cá nhân.
 
-Giá theo đề: token vào 26 đ/1.000, token ra 130 đ/1.000, tool 15 đ/lần, nhân viên 2.000 đ/phút; tự làm 12.000 đ/yêu cầu. Mọi số suy ra từ cột `_simulated` ghi nhãn `simulated`; số tiền làm tròn 2 chữ số, tính toán giữ số chưa làm tròn. Phần B chưa làm ở CP1.
+Giá theo đề: token vào 26 đ/1.000, token ra 130 đ/1.000, tool 15 đ/lần, nhân viên 2.000 đ/phút; tự làm 12.000 đ/yêu cầu. Mọi số suy ra từ cột `_simulated` ghi nhãn `simulated`; số tiền làm tròn 2 chữ số, tính toán giữ số chưa làm tròn. Phần B được bổ sung ở CP2, sau khi bảng CP1 của Cường merge qua PR #6 (`91d67e3`).
 
 ## A1 · Ba phép thử đáp án biết trước
 
@@ -107,34 +107,59 @@ Ngưỡng kiểm tra số thực: `math.isclose(rel_tol=1e-12, abs_tol=1e-8)`; k
 
 ## B1 · Đổi từng yếu tố
 
-| Kịch bản | Cách tính | Chi phí mỗi việc thành công | Thay đổi (%) |
+Mốc gốc: **4.471,9684376 đ/việc thành công [simulated]** (A2). Tỷ lệ thay đổi = (CPS kịch bản / CPS gốc − 1) × 100; mọi kịch bản chưa gồm cố định. Các hệ số xem lại/làm lại chỉ thay khoản chi tương ứng, không đổi số thành công, trừ hai kịch bản giới hạn lần chạy.
+
+| Kịch bản | Cách tính | Chi phí mỗi việc thành công (đ) [simulated] | Thay đổi (%) [simulated] |
 | --- | --- | ---: | ---: |
-| Giá token gấp đôi | 52 đ và 260 đ cho 1.000 token; giá tool giữ nguyên | ... | ... |
-| Giá token giảm một nửa | 13 đ và 65 đ | ... | ... |
-| Tỉ lệ xem lại gấp đôi | Tiền xem lại × 2 | ... | ... |
-| Tỉ lệ xem lại giảm một nửa | Tiền xem lại ÷ 2 | ... | ... |
-| Số ca làm lại gấp đôi | Tiền làm lại × 2 | ... | ... |
-| Số ca làm lại giảm một nửa | Tiền làm lại ÷ 2 | ... | ... |
-| Lương nhân viên tăng 25% | 2.500 đ mỗi phút | ... | ... |
-| Chỉ cho chạy tối đa 2 lần | Bỏ lần chạy có attempt > 2; yêu cầu có so_lan_chay > 2 coi là chuyen_nhan_vien | ... | ... |
-| Chỉ cho chạy 1 lần | Như trên với giới hạn 1 | ... | ... |
+| Giá token gấp đôi | 52 đ và 260 đ cho 1.000 token; giá tool giữ nguyên | 4.723,08 | +5,62% |
+| Giá token giảm một nửa | 13 đ và 65 đ | 4.346,41 | −2,81% |
+| Tỉ lệ xem lại gấp đôi | Tiền xem lại × 2 | 6.292,01 | +40,70% |
+| Tỉ lệ xem lại giảm một nửa | Tiền xem lại ÷ 2 | 3.561,95 | −20,35% |
+| Số ca làm lại gấp đôi | Tiền làm lại × 2 | 6.786,90 | +51,77% |
+| Số ca làm lại giảm một nửa | Tiền làm lại ÷ 2 | 3.314,50 | −25,88% |
+| Lương nhân viên tăng 25% | 2.500 đ mỗi phút | 5.505,71 | +23,12% |
+| Chỉ cho chạy tối đa 2 lần | Bỏ run `attempt > 2`; yêu cầu vượt giới hạn chuyển nhân viên, phút xem lại và làm lại bằng 0 | 4.237,29 | −5,25% |
+| Chỉ cho chạy 1 lần | Như trên với giới hạn 1 | 4.110,99 | −8,07% |
+
+Phép kiểm tay ví dụ: xem lại gấp đôi → (4.373.585,132 + 1.780.000) / 978 = **6.292,01 đ [simulated]**. Giảm nửa khoản xem lại → (4.373.585,132 − 890.000) / 978 = **3.561,95 đ [simulated]**; độ giảm bằng nửa độ tăng khi giữ số chưa làm tròn.
 
 ## B2 · Đổi một cặp và xếp hạng
 
-- Giá token gấp đôi cùng lúc tỉ lệ xem lại gấp đôi: ...
-- Xếp hạng ba yếu tố ảnh hưởng mạnh nhất: 1. ... · 2. ... · 3. ...
+- Giá token gấp đôi cùng lúc tỉ lệ xem lại gấp đôi: (4.373.585,132 + 245.585,132 + 1.780.000) / 978 = **6.543,12 đ, tăng 46,31% [simulated]**; tác động bằng tổng riêng 5,61519% + 40,69888% do mô hình cộng tuyến tính.
+- Xếp hạng ba yếu tố theo mức tăng trong B1: **1. Số ca làm lại (+51,77%); 2. Tỉ lệ xem lại (+40,70%); 3. Lương nhân viên (+23,12%) [simulated]**. Lương chỉ tăng 25% trong khi hai yếu tố đầu gấp đôi; đây là xếp hạng các kịch bản đề cho.
 
 ## B3 · Giới hạn chạy lại có thật sự rẻ hơn
 
-| Giới hạn | Tổng chi phí trợ lý | Số yêu cầu không thành công | Chi phí cả hệ thống | Chi phí mỗi việc thành công |
-| --- | ---: | ---: | ---: | ---: |
-| 1 lần | ... | ... | ... | ... |
-| 2 lần | ... | ... | ... | ... |
-| 3 lần | ... | ... | ... | ... |
+Chi phí cả hệ thống = tổng trợ lý + 12.000 × số yêu cầu không thành công, theo quy ước lab. CPS = tổng trợ lý / số thành công; hai mục tiêu tối ưu khác nhau. Kịch bản giới hạn chạy lại là giả định tính từ dữ liệu, không phải thử nghiệm đã triển khai.
 
-- Giới hạn nào rẻ nhất cho công ty? Có trùng với giới hạn cho chi phí mỗi việc thành công thấp nhất không? ...
+| Giới hạn | Tổng chi phí trợ lý (đ) [simulated] | Số yêu cầu không thành công | Chi phí cả hệ thống (đ) [simulated] | Chi phí mỗi việc thành công (đ) [simulated] |
+| --- | ---: | ---: | ---: | ---: |
+| 1 lần | 3.621.780,64 | 319 | 7.449.780,64 | 4.110,99 |
+| 2 lần | 4.093.220,23 | 234 | 6.901.220,23 | 4.237,29 |
+| 3 lần | 4.373.585,13 | 222 | 7.037.585,13 | 4.471,97 |
+
+- **2 lần** rẻ nhất cho công ty: **6.901.220,23 đ [simulated]**; CPS thấp nhất ở **1 lần: 4.110,99 đ [simulated]**. Chọn 1 lần đẩy thêm **85 yêu cầu** sang nhân viên và tăng tổng hệ thống **548.560,41 đ [simulated]** so với 2 lần.
+
+Phép kiểm tay: 2 lần có 966 thành công, 234 không thành công; 4.093.220,230 + 234 × 12.000 = **6.901.220,230 đ [simulated]**. Tương tự, số thành công ở 1 và 3 lần là **881 và 978**; tổng thành công + không thành công luôn bằng 1.200.
 
 ## B4 · Nếu phải xem lại tất cả
 
-- Chi phí mỗi việc thành công khi xem lại 100% (`noi_dia` + `hang_nang`), so với 12.000 đ: ...
-- Kết quả này nói gì về thứ pilot cần học được? ...
+- Xem lại 100% với 9 phút làm lại/ca: **11.742,79 đ = 0,979×**; với trung bình dữ liệu 15,2973 phút/ca: **12.414,50 đ = 1,035× [simulated]** so với 12.000 đ, chưa gồm cố định và phần nhân viên làm thay.
+- Pilot phải học cách giảm tỉ lệ xem lại an toàn và đo phút thực tế: với xem lại 100%, mức hòa vốn CPS là **5,122 phút/lần** (làm lại 9 phút) hoặc **4,803 phút/lần [simulated]** (trung bình dữ liệu).
+
+### Đầu vào và cách tự kiểm B4
+
+- Phạm vi có **982 yêu cầu**, **948 yêu cầu có ít nhất một run `ok`**, **48 ca `lam_lai`**, **900 thành công**. Xem lại 100% ở đây áp dụng cho 948 yêu cầu có kết quả `ok`, không phải mọi lần chạy.
+- Token + tool của mọi run trong phạm vi = **224.513,274 đ**; xem lại = 948 × 5 × 2.000 = **9.480.000 đ [simulated]**.
+- Với 9 phút/ca: làm lại = 48 × 9 × 2.000 = **864.000 đ [simulated]**; tổng = **10.568.513,274 đ [simulated]**; chia 900 được **11.742,79 đ [simulated]**.
+- Trung bình từ toàn bộ 74 ca làm lại = 1.132 / 74 = **15,297297… phút/ca [simulated]** (hiển thị 15,3); dùng số chưa làm tròn cho 48 ca trong phạm vi: tổng = **11.173.053,81454 đ [simulated]**, chia 900 = **12.414,50 đ [simulated]**.
+- Nếu chủ động làm tròn giả định lên 15,3 phút: tổng = **11.173.313,274 đ**, CPS = **12.414,79 đ [simulated]**. Code Vỹ giữ trung bình chưa làm tròn, nên output **12.415 đ [simulated]** là đúng; số 12.414 đ trong hướng dẫn lệch dưới 0,01%, trong ngưỡng rubric 2%.
+- Ngưỡng phút xem lại = (12.000 × 900 − 224.513,274 − tiền làm lại) / (948 × 2.000). Đây là hòa vốn theo CPS biến đổi của bài B4, chưa phải hòa vốn toàn bộ chi phí công ty.
+
+### Bằng chứng đối chiếu CP2
+
+Ngày **25/11/2026**, nền **`e3be9e9`**, code CP2 từ PR #2 (`f18aa18`). Tính độc lập bằng `csv.DictReader` và `decimal.Decimal`, sau đó so với `mo_hinh` của Vỹ: **55 phép so đạt** (11 cấu hình × 5 giá trị: tổng, thành công, không thành công, CPS, chi phí hệ thống), với `rel_tol=1e-12`, `abs_tol=1e-8`.
+
+Thêm **4 kiểm tra tuyến tính đạt**: ba cặp gấp đôi/giảm nửa và một kịch bản ghép. B4 đối chiếu đầu vào, tổng, CPS và ngưỡng hòa vốn với output code; khác biệt hiển thị chỉ do làm tròn. Chạy `python lab13.py` trong `src/` hoàn tất, ba phép thử A1 và các assert tuyến tính B1–B2 đạt.
+
+Kết quả có AI hỗ trợ, chưa xác nhận Cường đã tự kiểm tay; có thể dùng phép cộng B3 hoặc công thức B4 ở trên để tự kiểm chứng. CP2 này chỉ sửa bảng chi phí; không sửa code của Vỹ hoặc hai CSV.
