@@ -9,11 +9,11 @@ Nhóm: NhomABC · Lớp: L3B
 | 3 · So với nhân viên tự làm | Phạm vi nội địa và hàng nặng: 4.599,09 đ/việc gồm cố định; cả xử lý thủ công là 5.217,09 đ/yêu cầu so với 12.000 đ/yêu cầu tự làm (`simulated`) | Giả lập | Giám đốc vận hành |
 | 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | Đợt chạy thử: chỉ số chính 82,83% (994/1.200); bỏ qua gợi ý 27,12% (48/177); mở lại 4,25% (51/1.200). Chưa có đối chứng | Xong, có bằng chứng | Trưởng nhóm CSKH |
 | 5 · Bảng lỗi và cách khắc phục | Đã chốt nhãn cho 20 ca và đề xuất cách khắc phục 5 loại; chưa có hai bộ nhãn độc lập | Chưa | Kỹ sư trưởng agent |
-| 6 · Pilot plan | Chia ngẫu nhiên 20 nhân viên/nhóm, 5.980 yêu cầu/nhóm, MDE 6 điểm; power khoảng 0,64 nếu tác động chỉ 5 điểm. Đã viết 3 luật dừng; cần rà soát ý nghĩa vế “không thì” | Xong, có bằng chứng | Giám đốc vận hành |
+| 6 · Pilot plan | Chia ngẫu nhiên 20 nhân viên/nhóm, 5.980 yêu cầu thô/nhóm (`m ≥ 299`, `DE = 6,96`), MDE 6 điểm; power khoảng 0,64 nếu tác động thật chỉ 5 điểm. Đã chốt 3 luật dừng đủ 4 vế và rollback 30 phút | Xong, có bằng chứng | Giám đốc vận hành |
 | 7 · Rủi ro kinh tế | Làm lại gấp đôi: 6.786,90 đ/việc; xem lại 100%: 11.742,79–12.414,50 đ/việc (`simulated`), chưa gồm cố định | Giả lập | PM trợ lý hoàn phí |
 
-Điều kiện trước khi bắt đầu: Giám đốc vận hành rà soát 3 luật dừng, nhất là vế “không thì”; Kỹ sư trưởng agent rà soát bảng lỗi và thống nhất với nhóm cách xử lý việc thiếu bộ nhãn độc lập thứ hai. Hạn kiểm tra: trước khi bắt đầu pilot, và không muộn hơn ngày quyết định 05/01/2027.
+Điều kiện trước khi bắt đầu: Kỹ sư trưởng agent vá khóa chống hoàn trùng & đối soát sổ cái (ca 7, 20), bật đủ 10 event có `trace_id` và cùng PM hoàn tất xác nhận bảng lỗi độc lập; Giám đốc vận hành ký chấp nhận đánh đổi MDE 6 điểm (power 0,64 ở mức 5 điểm). Hạn kiểm tra: trước khi bắt đầu pilot và không muộn hơn ngày quyết định 05/01/2027.
 
-Điều kiện theo dõi: Trưởng nhóm CSKH đo thời gian xem lại thực tế và theo dõi chi phí khi xem lại 100%; PM trợ lý hoàn phí kiểm tra mức ảnh hưởng tối thiểu và power trước ngày quyết định 05/01/2027. Với tác động 5 điểm, power chỉ khoảng 0,64; kịch bản xem lại 100% đạt 11.742,79–12.414,50 đ/việc (`simulated`), chưa gồm cố định và xử lý thủ công.
+Điều kiện theo dõi: Trưởng nhóm CSKH đo thời gian xem lại thực tế từ tuần 1 (thay số `simulated`) và triển khai hạ tỉ lệ xem lại theo bậc vì xem lại 100% đạt 11.742,79–12.414,50 đ/việc (`simulated`, chưa gồm cố định và xử lý thủ công); PM trợ lý hoàn phí theo dõi chi phí đo thật, MDE và power trước ngày quyết định 05/01/2027.
 
 **Đề xuất: Go có điều kiện.**

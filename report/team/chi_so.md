@@ -18,7 +18,7 @@ Mười event cốt lõi, mọi event đều gắn `trace_id` để nối với 
 
 | Event | Ai tạo | Thuộc tính chính | Thời điểm |
 | --- | --- | --- | --- |
-| `refund_request_created` | App khách hàng | `request_id`, `loai`, `so_tien_vnd`, `depot`, `arm`, `trace_id` | Khi khách gửi yêu cầu hoàn phí |
+| `refund_request_created` | App khách hàng | `request_id`, `loai`, `so_tien_vnd`, `depot`, `arm`, `created_at`, `trace_id` | Khi khách gửi yêu cầu hoàn phí |
 | `agent_run_completed` | Agent | `request_id`, `attempt`, `tokens_in`, `tokens_out`, `tool_calls`, `status`, `trace_id` | Sau mỗi lần chạy của agent, kể cả lần lỗi |
 | `agent_suggestion_shown` | Giao diện nhân viên | `request_id`, `staff_id`, `so_tien_de_xuat`, `arm`, `trace_id` | Khi gợi ý của trợ lý hiển thị cho nhân viên |
 | `staff_review_decision` | Giao diện nhân viên | `request_id`, `staff_id`, `quyet_dinh` (`giu`/`sua`/`bo`), `phut_xem_lai` (đo thật), `trace_id` | Khi nhân viên bấm giữ, sửa hoặc bỏ gợi ý |
@@ -29,7 +29,7 @@ Mười event cốt lõi, mọi event đều gắn `trace_id` để nối với 
 | `ticket_reopened` | App khách / CSKH | `request_id`, `reopened_at`, `reason`, `trace_id` | Khi khách mở lại yêu cầu sau khi đã đóng |
 | `audit_sample_checked` | Hệ thống kiểm toán | `request_id`, `so_tien_da_hoan`, `so_tien_dung`, `phien_ban_bang_gia`, `trace_id` | Khi kế toán kiểm tra mẫu 100 đơn/tuần |
 
-**Kiểm tra chéo:** mọi chỉ số ở bảng E1 đều tính được trực tiếp từ danh sách event trên qua `request_id` và `trace_id`:
+**Kiểm tra chéo:** mọi chỉ số ở bảng E1 đều tính được trực tiếp từ danh sách event trên bằng cách đếm theo `request_id` duy nhất và nối trace qua `trace_id`:
 
 - **Chỉ số chính (% đóng trong 24h và không mở lại trong 7 ngày):** `refund_request_created` (mốc tạo, tổng yêu cầu), `ticket_closed` (kiểm tra `closed_at - created_at ≤ 24h`) và `ticket_reopened` (không có event trong 7 ngày kể từ `closed_at`).
 - **Chỉ số dùng (tỉ lệ bỏ qua gợi ý):** `staff_review_decision` (đếm `quyet_dinh` thuộc `sua` hoặc `bo` chia tổng số event `staff_review_decision`).
