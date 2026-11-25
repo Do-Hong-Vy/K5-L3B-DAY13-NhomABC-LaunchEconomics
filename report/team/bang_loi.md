@@ -6,7 +6,7 @@
 
 Người gắn nhãn 1: Phạm Hà Nam · Người gắn nhãn 2: Nguyễn Trung Dũng. Người gắn nhãn 2 đã xem nhãn tham khảo và nhãn người 1; chưa có hai bộ nhãn độc lập.
 
-| Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn đề xuất, chờ thống nhất |
+| Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
 | 1 | Do người dùng | Chờ | Chờ | Do người dùng |
 | 2 | Hệ thống | Chờ | Chờ | Hệ thống |
@@ -29,13 +29,13 @@ Người gắn nhãn 1: Phạm Hà Nam · Người gắn nhãn 2: Nguyễn Trung
 | 19 | Giới hạn hệ thống | Chờ | Chờ | Giới hạn hệ thống |
 | 20 | Hệ thống | Chờ | Chờ | Hệ thống |
 
-**Tỉ lệ đồng thuận:** Chưa tính được vì chưa có hai bộ nhãn độc lập. Nhãn đề xuất dựa trên hướng dẫn trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md`, đang chờ Nam và Dũng xác nhận.
+**Tỉ lệ đồng thuận:** Chưa tính được vì chưa có hai bộ nhãn độc lập. Dũng chốt nhãn thống nhất dựa trên hướng dẫn trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md`, theo quyền Nam đã giao.
 
 ## Quy tắc phân biệt cho các ca không trùng
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
 
-- Chờ hai người gắn nhãn xem lại và xác nhận các nhãn thống nhất.
+- Chưa có bộ nhãn độc lập thứ hai để xác định các ca không trùng.
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 
@@ -43,8 +43,8 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
-| 9 | Do người dùng | Theo dõi `handoff_to_staff` với lý do mã không hợp lệ hằng ngày; cảnh báo nếu quá 2% yêu cầu | Hướng dẫn tìm mã vận đơn hoặc chuyển nhân viên nếu không tra được | Người phụ trách sản phẩm |
+| 9 | Do người dùng | Theo dõi số ca `handoff_to_staff` vì mã không hợp lệ mỗi ngày; cảnh báo khi trên 2% yêu cầu được chuyển vì lý do này | Hướng dẫn tìm mã vận đơn hoặc chuyển nhân viên nếu không tra được | Người phụ trách sản phẩm |
 | 7 | Hệ thống | Đối soát `refund_ledger_write` hằng giờ với thông báo thành công; ngưỡng 0 ca lệch | Chỉ báo hoàn thành khi sổ cái xác nhận; sau 3 lần lỗi thì chuyển nhân viên | Kỹ sư phụ trách trợ lý |
-| 18 | Ngữ cảnh | Theo dõi `ticket_reopened` hằng tuần và kiểm tra các ca nghi hoàn thiếu | Ghi rõ số tiền gốc, tỉ lệ hoàn và phép tính trong thông báo | Trưởng nhóm CSKH |
-| 4 | Giới hạn hệ thống | Đếm `handoff_to_staff` vì thiếu dữ liệu theo tuần và loại yêu cầu | Chuyển nhân viên kèm tóm tắt; không đưa yêu cầu quốc tế vào pilot | Người phụ trách sản phẩm |
+| 18 | Ngữ cảnh | Theo dõi `ticket_reopened` hằng tuần; kiểm tra từng ca có lý do nghi hoàn thiếu, ngưỡng từ 1 ca | Ghi rõ số tiền gốc, tỉ lệ hoàn và phép tính trong thông báo | Trưởng nhóm CSKH |
+| 4 | Giới hạn hệ thống | Đếm `handoff_to_staff` vì thiếu dữ liệu theo tuần và loại yêu cầu; rà soát từ 1 ca | Chuyển nhân viên kèm tóm tắt; không đưa yêu cầu quốc tế vào pilot | Người phụ trách sản phẩm |
 | 17 | Ngầm | Dùng `audit_sample_checked` kiểm tra 100 đơn/tuần với bảng giá hiện hành; cảnh báo nếu từ 1% đơn bị lệch | Cập nhật bộ nhớ đệm khi đổi giá và lưu phiên bản bảng giá | Kế toán trưởng |
