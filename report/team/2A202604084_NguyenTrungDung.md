@@ -29,4 +29,4 @@ Dùng Codex để đọc hướng dẫn, đề xuất cách khắc phục và t�
 
 ## 6. Tự đánh giá
 
-Đã chuẩn bị hồ sơ theo kết quả hiện có; đã cập nhật số liệu từ kế hoạch pilot; cần nhóm rà soát luật dừng và xử lý việc thiếu bộ nhãn độc lập thứ hai.
+Đã hoàn thiện hồ sơ launch và báo cáo nhóm theo đầy đủ kết quả của đội; phần luật dừng và mốc lịch pilot đã được rà soát hoàn thiện sau phản hồi duyệt chéo (đội nhận 30/30 từ Nhóm Rua). Việc thiếu bộ nhãn độc lập thứ hai được giữ minh bạch ở trạng thái Chưa và khóa thành Điều kiện #2 trước bước rollout `0.25`.

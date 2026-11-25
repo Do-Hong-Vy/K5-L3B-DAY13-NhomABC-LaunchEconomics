@@ -5,7 +5,7 @@
 - Tên nhóm: NhomABC
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY13-NhomABC-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt: https://github.com/Do-Hong-Vy/K5-L3B-DAY13-NhomABC-LaunchEconomics | Nhánh: `main` | Commit chốt: `HEAD` nhánh `main` (merge PR #19 `vy/final-submission-qa`)
+- URL repo, nhánh nộp, commit chốt: https://github.com/Do-Hong-Vy/K5-L3B-DAY13-NhomABC-LaunchEconomics | Nhánh: `main` | Commit chốt: `HEAD` nhánh `main` (merge PR #20 `vy/sync-final-reports`)
 
 ## Thành viên
 
@@ -50,7 +50,7 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 ### Bằng chứng
 
-- PR #1 (`c0be8ea`), PR #2 (`f18aa18`), PR #3 (`50e0e1d`), PR #4 (`9f76372`), PR #15 (`ab4bbe2`), PR #16 (`28099ae`), PR #17 (`7f4dcfd`), PR #18 (`05cefb1`), PR #19 (`vy/final-submission-qa`), commit `52b15a6`.
+- PR #1 (`c0be8ea`), PR #2 (`f18aa18`), PR #3 (`50e0e1d`), PR #4 (`9f76372`), PR #15 (`ab4bbe2`), PR #16 (`28099ae`), PR #17 (`7f4dcfd`), PR #18 (`05cefb1`), PR #19 (`ba4e22e`), PR #20 (`vy/sync-final-reports`), commit `52b15a6`.
 - File: `src/lab13.py`, `report/team/chi_so.md`, `report/team/phieu_cham.md`, `report/team/2A202604107_DoHongVy.md`, `task.md`, `TEAM.md`.
 
 ## PhamHaNam-2A202604023
