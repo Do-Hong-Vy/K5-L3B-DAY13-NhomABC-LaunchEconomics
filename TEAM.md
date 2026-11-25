@@ -13,7 +13,7 @@
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Đỗ Hồng Vỹ | 2A202604107 | 26ai.vydh@vinuni.edu.vn | Do-Hong-Vy | Người viết code |
 |   2 | Phạm Hà Nam | 2A202604023 | |phamhanam | Người gắn nhãn 1 |
-|   3 | Nguyễn Trung Dũng | 2A202604084 | |bomgoa1102 | Người gắn nhãn 2, kiêm giữ hồ sơ |
+|   3 | Nguyễn Trung Dũng | 2A202604084 | 26ai.dungnt9@vinuni.edu.vn |bomgoa1102 | Người gắn nhãn 2, kiêm giữ hồ sơ |
 |   4 | Lê Khánh Cường | 2A202603999 | |lekhanhcuongvk1 | Người kiểm số |
 
 Bốn vai của lab:
@@ -71,11 +71,11 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 ### Đóng góp cụ thể
 
--
+- Tổng hợp hồ sơ launch; ghi nhãn tham khảo và đề xuất cách khắc phục lỗi với hỗ trợ của Codex.
 
 ### Bằng chứng
 
--
+- `report/team/ho_so_launch_v0.md`, `report/team/bang_loi.md` và báo cáo cá nhân.
 
 ## LeKhanhCuong-2A202603999
 
