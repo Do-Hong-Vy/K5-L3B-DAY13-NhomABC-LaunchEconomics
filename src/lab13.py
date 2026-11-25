@@ -4,6 +4,7 @@ Không cần khoá API. Điền các chỗ ghi VIẾT Ở ĐÂY (đánh dấu TO
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 """
 import math
+from statistics import NormalDist
 import pandas as pd
 
 # Bảng giá GIẢ ĐỊNH của lab (không phải giá thật của nhà cung cấp nào)
@@ -232,6 +233,86 @@ def in_nhiem_vu_b(runs, reqs):
               f"Hoà vốn xem lại ≤ {hoa_von_phut:.1f} phút  [simulated]")
 
 
+def co_mau_hai_ti_le(p1, p2, alpha=0.05, power=0.80):
+    """Cỡ mẫu MỖI nhóm, hai nhóm bằng nhau, kiểm định hai phía (công thức D1)."""
+    if not (0 < p1 < 1 and 0 < p2 < 1 and p1 != p2
+            and 0 < alpha < 1 and 0.5 < power < 1):
+        raise ValueError('Cần hai tỉ lệ khác nhau trong (0, 1), alpha trong (0, 1), power trong (0.5, 1).')
+    normal = NormalDist()
+    za = normal.inv_cdf(1 - alpha / 2)
+    zb = normal.inv_cdf(power)
+    pb = (p1 + p2) / 2
+    n = (za * math.sqrt(2 * pb * (1 - pb))
+         + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2 / (p2 - p1) ** 2
+    return math.ceil(n)
+
+
+def power_hai_ti_le(p1, p2, n_moi_nhom, alpha=0.05):
+    """Power xấp xỉ chuẩn hai phía, Cohen h; tương đương NormalIndPower, ratio=1.
+
+    Cỡ mẫu đầu vào là cỡ mẫu hiệu dụng mỗi nhóm; đây không phải kiểm định cụm chính xác.
+    """
+    if not (0 < p1 < 1 and 0 < p2 < 1 and n_moi_nhom > 0 and 0 < alpha < 1):
+        raise ValueError('Tỉ lệ và alpha phải trong (0, 1); cỡ mẫu phải dương.')
+    normal = NormalDist()
+    h = abs(2 * (math.asin(math.sqrt(p2)) - math.asin(math.sqrt(p1))))
+    shift = h * math.sqrt(n_moi_nhom / 2)
+    za = normal.inv_cdf(1 - alpha / 2)
+    return normal.cdf(shift - za) + normal.cdf(-shift - za)
+
+
+def in_nhiem_vu_d(reqs):
+    """CP4 của Cường: đủ D1a-e, đánh đổi power và baseline an toàn cho Nam điền YAML.
+
+    Công thức theo docs/du_lieu_va_cong_thuc.md và hướng dẫn chi tiết nhiệm vụ D.
+    Các giả định thiết kế do đề cho, không suy từ kết quả chạy thử không đối chứng.
+    """
+    baseline, alpha, power, icc = 0.70, 0.05, 0.80, 0.02
+    nhan_vien_moi_nhom, depot_moi_nhom, m = 20, 6, 75
+    n5 = co_mau_hai_ti_le(baseline, 0.75, alpha, power)
+    de75 = 1 + (m - 1) * icc
+    n_cum = math.ceil(n5 * de75)
+    staff_can = math.ceil(n_cum / m)
+    tran_staff = nhan_vien_moi_nhom / icc
+    tran_depot = depot_moi_nhom / icc
+    n6 = co_mau_hai_ti_le(baseline, 0.76, alpha, power)
+    # Giải c*m / [1 + (m-1)*ICC] >= n6; n5 > c/ICC nên tăng m không cứu được MDE 5 điểm.
+    m6 = math.ceil(n6 * (1 - icc) / (nhan_vien_moi_nhom - n6 * icc))
+    de6 = 1 + (m6 - 1) * icc
+    n_hieu_dung = nhan_vien_moi_nhom * m6 / de6
+    power5 = power_hai_ti_le(baseline, 0.75, n6, alpha)
+
+    print('\n========== D1 · CỠ MẪU VÀ ĐÁNH ĐỔI PILOT ==========')
+    print('Giả định đề: baseline 0,70; MDE 5 điểm phần trăm; alpha 0,05; power 0,80; ICC 0,02.')
+    print(f'a) Chia theo yêu cầu: {n5:,} yêu cầu mỗi nhóm; DE = 1; tổng {2 * n5:,}.')
+    print(f'b) Theo nhân viên, m = {m}: DE = {de75:.2f}; cần {n_cum:,} yêu cầu/nhóm; '
+          f'{staff_can} người/nhóm = {2 * staff_can} người > 40: không đủ người.')
+    print(f'c) 20 nhân viên/nhóm: n hiệu dụng < c/ICC = {tran_staff:,.0f} < {n5:,}; '
+          'không đạt MDE 5 điểm dù tăng số yêu cầu mỗi người.')
+    print(f'd) 6 depot/nhóm: n hiệu dụng < {tran_depot:,.0f} < {n5:,}; '
+          'chỉ 6 cụm/nhóm, dưới yêu cầu 20 cụm; không đạt.')
+    print(f'e) MDE 6 điểm: {n6:,} hiệu dụng/nhóm; với 20 nhân viên/nhóm cần m >= {m6}; '
+          f'DE = {de6:.2f}; {nhan_vien_moi_nhom * m6:,} yêu cầu thô/nhóm; '
+          f'n hiệu dụng = {n_hieu_dung:.2f}.')
+    print(f'Đánh đổi: power nếu tác động thật chỉ 5 điểm ở n hiệu dụng {n6} là {power5:.4f} '
+          '(khoảng 0,64), thấp hơn mục tiêu 0,80; xấp xỉ chuẩn với Cohen h.')
+    print('n_per_arm = 859 trong phương án MDE 6 điểm là cỡ mẫu hiệu dụng yêu cầu; '
+          'thu ít nhất 299 yêu cầu/người cho 20 người mỗi nhóm. Cần đối chứng cùng thời gian và giảm tràn tác động.')
+
+    reqs_pv = reqs[reqs['loai'].isin(PHAM_VI_PILOT)]
+    mo_lai = int((reqs['mo_lai_trong_7_ngay'] == 1).sum())
+    mo_lai_pv = int((reqs_pv['mo_lai_trong_7_ngay'] == 1).sum())
+    print('\nBaseline an toàn quan sát trong đợt chạy thử (chưa có đối chứng):')
+    print(f'  Toàn mẫu: {mo_lai}/{len(reqs)} = {mo_lai / len(reqs):.2%} mở lại trong 7 ngày.')
+    print(f'  noi_dia + hang_nang: {mo_lai_pv}/{len(reqs_pv)} = {mo_lai_pv / len(reqs_pv):.2%}.')
+    print('  Ngưỡng tuyệt đối 3% thấp hơn baseline quan sát; Nam cần cân nhắc đối chứng '
+          'và cửa sổ đủ 7 ngày khi viết luật dừng. Không suy ra tác động từ số chạy thử.')
+    return dict(n5=n5, de75=de75, n_cum=n_cum, staff_can=staff_can,
+                tran_staff=tran_staff, tran_depot=tran_depot, n6=n6, m6=m6,
+                de6=de6, n_hieu_dung=n_hieu_dung, power5=power5,
+                mo_lai=mo_lai, mo_lai_pv=mo_lai_pv)
+
+
 def in_nhiem_vu_e1(reqs):
     """In kết quả tính thử 3 chỉ số E1 trên 1.200 yêu cầu (CP5)."""
     print('\n========== E1 · TÍNH THỬ CHỈ SỐ TRONG ĐỢT CHẠY THỬ (1.200 YÊU CẦU) ==========')
@@ -263,7 +344,5 @@ if __name__ == '__main__':
     kiem_tra_dap_an_biet_truoc()
     in_nhiem_vu_a(runs, reqs)
     in_nhiem_vu_b(runs, reqs)
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu (Lê Khánh Cường phụ trách).
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    in_nhiem_vu_d(reqs)
     in_nhiem_vu_e1(reqs)
