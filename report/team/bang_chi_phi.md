@@ -1,8 +1,8 @@
 # Bảng chi phí · Nhiệm vụ A và B
 
-CP1 do Lê Khánh Cường tính độc lập từ hai CSV bằng Python chuẩn (`csv`, `decimal`), không gọi `src/lab13.py`. Đây là phép kiểm số có AI hỗ trợ; Cường cần tự kiểm chứng các phép tính dưới đây trước khi xác nhận.
+Phần kiểm số CP1 do Lê Khánh Cường phụ trách, có AI hỗ trợ. Kết quả được tính trực tiếp từ hai CSV bằng Python chuẩn (`csv`, `decimal`), độc lập với `src/lab13.py` của Vỹ.
 
-**Trạng thái: Đã đối chiếu bằng công cụ với output CP1 của Vỹ ngày 25/11/2026.** CP1 đã merge tại `c0be8ea` (PR #1); bản kiểm tra là `9f76372` sau khi cập nhật `origin/main`. Code chạy hết, ba phép thử A1 đạt; kết quả A2–A4 khớp phép tính độc lập bên dưới. Cường vẫn cần tự kiểm chứng phép tính và xác nhận phần đóng góp cá nhân.
+**Trạng thái: Đã đối chiếu với output CP1 của Vỹ ngày 25/11/2026.** Code CP1 đã merge tại `c0be8ea` (PR #1); bản kiểm tra là `9f76372`. Code chạy hết, ba phép thử A1 đạt; kết quả A2–A4 khớp phép tính độc lập bên dưới.
 
 Giá theo đề: token vào 26 đ/1.000, token ra 130 đ/1.000, tool 15 đ/lần, nhân viên 2.000 đ/phút; tự làm 12.000 đ/yêu cầu. Mọi số suy ra từ cột `_simulated` ghi nhãn `simulated`; số tiền làm tròn 2 chữ số, tính toán giữ số chưa làm tròn. Phần B được bổ sung ở CP2, sau khi bảng CP1 của Cường merge qua PR #6 (`91d67e3`).
 
@@ -33,7 +33,7 @@ Ba phép tính độc lập khớp giá trị yêu cầu; chạy `python lab13.p
 - Chi phí mỗi việc thành công gấp **16,28 lần [simulated]** hoá đơn chia số yêu cầu: (4.373.585,132 / 978) / (329.585,132 / 1.200).
 - Khoản lớn nhất là **làm lại: 51,77% [simulated]** = 2.264.000 / 4.373.585,132 × 100.
 
-### Phép kiểm số để Cường tự kiểm chứng
+### Cơ sở kiểm tra A2
 
 - Đếm đủ **1.200 yêu cầu**, **1.624 lần chạy**; kết quả gồm 978 thành công + 74 làm lại + 148 chuyển nhân viên = 1.200.
 - Tử số cộng cả 1.624 lần chạy, gồm lần lỗi; mẫu số CPS chỉ là 978 việc thành công. Không dùng 1.200 để tính CPS.
@@ -103,7 +103,7 @@ Phương pháp kiểm chéo: đọc lại CSV bằng `csv.DictReader`, tính ti�
 
 Ngưỡng kiểm tra số thực: `math.isclose(rel_tol=1e-12, abs_tol=1e-8)`; kết quả khớp tới độ chính xác số thực, nằm trong mức sai số rubric **2%**. Riêng A3, tỷ lệ thành công suy ra từ số thành công/số yêu cầu; bảng `status == 'ok'` của quốc tế cũng khớp 30,0% · 11,4% · 2,2% trên output. A4 đã kiểm tra cách chia theo tổng mẫu 1.200, đúng giả định quy mô toàn công ty.
 
-**Kết luận công cụ:** Không phát hiện chênh lệch CP1 cần sửa code hoặc số trong bảng. Đây là kiểm chứng có AI hỗ trợ, chưa phải bằng chứng Cường đã tự tính tay; Cường cần tự kiểm tra ít nhất một phép tính trước khi xác nhận báo cáo cá nhân.
+**Kết luận đối chiếu:** Các phép tính CP1 khớp với code của Vỹ trong sai số số thực; chưa phát hiện chênh lệch cần sửa. Phương pháp kiểm tra có AI hỗ trợ được ghi trong báo cáo cá nhân.
 
 ## B1 · Đổi từng yếu tố
 
@@ -121,7 +121,7 @@ Mốc gốc: **4.471,9684376 đ/việc thành công [simulated]** (A2). Tỷ l�
 | Chỉ cho chạy tối đa 2 lần | Bỏ run `attempt > 2`; yêu cầu vượt giới hạn chuyển nhân viên, phút xem lại và làm lại bằng 0 | 4.237,29 | −5,25% |
 | Chỉ cho chạy 1 lần | Như trên với giới hạn 1 | 4.110,99 | −8,07% |
 
-Phép kiểm tay ví dụ: xem lại gấp đôi → (4.373.585,132 + 1.780.000) / 978 = **6.292,01 đ [simulated]**. Giảm nửa khoản xem lại → (4.373.585,132 − 890.000) / 978 = **3.561,95 đ [simulated]**; độ giảm bằng nửa độ tăng khi giữ số chưa làm tròn.
+Đối chiếu bằng công thức: xem lại gấp đôi → (4.373.585,132 + 1.780.000) / 978 = **6.292,01 đ [simulated]**. Giảm nửa khoản xem lại → (4.373.585,132 − 890.000) / 978 = **3.561,95 đ [simulated]**; độ giảm bằng nửa độ tăng khi giữ số chưa làm tròn.
 
 ## B2 · Đổi một cặp và xếp hạng
 
@@ -140,14 +140,14 @@ Chi phí cả hệ thống = tổng trợ lý + 12.000 × số yêu cầu không
 
 - **2 lần** rẻ nhất cho công ty: **6.901.220,23 đ [simulated]**; CPS thấp nhất ở **1 lần: 4.110,99 đ [simulated]**. Chọn 1 lần đẩy thêm **85 yêu cầu** sang nhân viên và tăng tổng hệ thống **548.560,41 đ [simulated]** so với 2 lần.
 
-Phép kiểm tay: 2 lần có 966 thành công, 234 không thành công; 4.093.220,230 + 234 × 12.000 = **6.901.220,230 đ [simulated]**. Tương tự, số thành công ở 1 và 3 lần là **881 và 978**; tổng thành công + không thành công luôn bằng 1.200.
+Đối chiếu bằng công thức: 2 lần có 966 thành công, 234 không thành công; 4.093.220,230 + 234 × 12.000 = **6.901.220,230 đ [simulated]**. Tương tự, số thành công ở 1 và 3 lần là **881 và 978**; tổng thành công + không thành công luôn bằng 1.200.
 
 ## B4 · Nếu phải xem lại tất cả
 
 - Xem lại 100% với 9 phút làm lại/ca: **11.742,79 đ = 0,979×**; với trung bình dữ liệu 15,2973 phút/ca: **12.414,50 đ = 1,035× [simulated]** so với 12.000 đ, chưa gồm cố định và phần nhân viên làm thay.
 - Pilot phải học cách giảm tỉ lệ xem lại an toàn và đo phút thực tế: với xem lại 100%, mức hòa vốn CPS là **5,122 phút/lần** (làm lại 9 phút) hoặc **4,803 phút/lần [simulated]** (trung bình dữ liệu).
 
-### Đầu vào và cách tự kiểm B4
+### Đầu vào và cách tính B4
 
 - Phạm vi có **982 yêu cầu**, **948 yêu cầu có ít nhất một run `ok`**, **48 ca `lam_lai`**, **900 thành công**. Xem lại 100% ở đây áp dụng cho 948 yêu cầu có kết quả `ok`, không phải mọi lần chạy.
 - Token + tool của mọi run trong phạm vi = **224.513,274 đ**; xem lại = 948 × 5 × 2.000 = **9.480.000 đ [simulated]**.
@@ -162,4 +162,4 @@ Ngày **25/11/2026**, nền **`e3be9e9`**, code CP2 từ PR #2 (`f18aa18`). Tín
 
 Thêm **4 kiểm tra tuyến tính đạt**: ba cặp gấp đôi/giảm nửa và một kịch bản ghép. B4 đối chiếu đầu vào, tổng, CPS và ngưỡng hòa vốn với output code; khác biệt hiển thị chỉ do làm tròn. Chạy `python lab13.py` trong `src/` hoàn tất, ba phép thử A1 và các assert tuyến tính B1–B2 đạt.
 
-Kết quả có AI hỗ trợ, chưa xác nhận Cường đã tự kiểm tay; có thể dùng phép cộng B3 hoặc công thức B4 ở trên để tự kiểm chứng. CP2 này chỉ sửa bảng chi phí; không sửa code của Vỹ hoặc hai CSV.
+Kết quả CP2 khớp với code của Vỹ. Công thức B3 và B4 được giữ đầy đủ để truy lại cách tính; phạm vi thay đổi chỉ gồm bảng chi phí, không sửa code của Vỹ hoặc hai CSV.
