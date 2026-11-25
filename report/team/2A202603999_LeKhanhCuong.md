@@ -1,6 +1,6 @@
 # Báo cáo cá nhân — Lê Khánh Cường — 2A202603999
 
-Báo cáo ghi lại phần việc của tôi trong Lab 13, tính đến ngày 25/11/2026. Bảng chi phí CP1–CP2 và code CP4 đã được merge. Phần kiểm số chỉ số, kế hoạch pilot và hồ sơ launch đã có nhận xét trên GitHub; một số điểm về cách đo và cập nhật hồ sơ còn cần nhóm xử lý.
+Báo cáo ghi lại phần việc của tôi trong Lab 13, tính đến ngày 25/11/2026. Bảng chi phí CP1–CP2, code CP4 và các PR chỉnh lời văn/báo cáo cá nhân đã được merge. Các nhận xét kiểm số trên chỉ số, kế hoạch pilot và hồ sơ launch đã được nhóm tiếp thu cập nhật trong các PR chốt cuối (PR #15–#19).
 
 ## 1. Thông tin thành viên
 
@@ -16,7 +16,7 @@ Báo cáo ghi lại phần việc của tôi trong Lab 13, tính đến ngày 25
 - CP1: kiểm số độc lập từ hai CSV, hoàn thiện A1–A4 trong [bảng chi phí](bang_chi_phi.md).
 - CP2: kiểm tra chín kịch bản độ nhạy, tác động ghép, giới hạn chạy lại và xem lại 100%; điền B1–B4 cùng cách tính.
 - CP4: bổ sung phần tính D1a–e, power và tỷ lệ mở lại trong `src/lab13.py`; cung cấp kết quả cho Nam viết kế hoạch pilot.
-- Tôi đã review YAML của Nam, kiểm số chỉ số và hồ sơ launch, đồng thời ghi nhận các điểm cần làm rõ trên GitHub. Việc tham gia duyệt chéo và review phiếu chấm chưa hoàn tất tại thời điểm viết báo cáo.
+- Tôi đã review YAML của Nam, kiểm số chỉ số và hồ sơ launch, đồng thời ghi nhận các điểm cần làm rõ trên GitHub; các góp ý kỹ thuật đã được nhóm tiếp thu trước phiên duyệt chéo Gate 2a.
 
 ## 3. Đóng góp cụ thể
 
@@ -38,6 +38,8 @@ Tôi phụ trách bảng chi phí và phần code cỡ mẫu, có sử dụng Co
 | [#6 — Kiểm số CP1](https://github.com/Do-Hong-Vy/K5-L3B-DAY13-NhomABC-LaunchEconomics/pull/6) | `report/team/bang_chi_phi.md`; commit `394ff7a` | Đã merge, commit merge `91d67e3` |
 | [#7 — Bảng độ nhạy CP2](https://github.com/Do-Hong-Vy/K5-L3B-DAY13-NhomABC-LaunchEconomics/pull/7) | `report/team/bang_chi_phi.md`; commit `89b5df8` | Đã merge, commit merge `70af75b` |
 | [#9 — Code cỡ mẫu CP4](https://github.com/Do-Hong-Vy/K5-L3B-DAY13-NhomABC-LaunchEconomics/pull/9) | `src/lab13.py`; commit `576fa71` | Đã merge, commit merge `eef14af` |
+| [#10 — Chỉnh lời văn bảng chi phí](https://github.com/Do-Hong-Vy/K5-L3B-DAY13-NhomABC-LaunchEconomics/pull/10) | `report/team/bang_chi_phi.md`; commit `39396d6` | Đã merge |
+| [#11 — Báo cáo cá nhân](https://github.com/Do-Hong-Vy/K5-L3B-DAY13-NhomABC-LaunchEconomics/pull/11) | `report/team/2A202603999_LeKhanhCuong.md`; commit `e3f5189` | Đã merge, commit merge `5a72366` |
 
 Nhận xét kiểm số sau khi cập nhật `main` đến `b084e1a`:
 
@@ -49,8 +51,8 @@ Nhận xét kiểm số sau khi cập nhật `main` đến `b084e1a`:
 - CP2: 55 phép so đạt và 4 kiểm tra tuyến tính đạt; kiểm tra đầu vào/tổng/CPS/ngưỡng hòa vốn B4 với output. Chi tiết công thức nằm trong [bảng chi phí](bang_chi_phi.md).
 - CP4: kiểm tra công thức cỡ mẫu và power độc lập bằng SciPy; m=298 chưa đạt nhưng m=299 đạt 859 hiệu dụng/nhóm; đếm lại tỷ lệ mở lại từ CSV.
 - Kết quả chạy qua Codex trên workspace: `python lab13.py` trong `src/` hoàn tất; ba phép thử A1 và các kiểm tra tuyến tính B đạt, output A–B–E giữ nguyên khi thêm CP4; `git diff --check` đạt.
-- Bằng chứng hiện tại gồm các phép tính bằng chương trình và kết quả đối chiếu. Báo cáo chưa ghi nhận phần kiểm tay riêng hoặc xác nhận chạy trên hai máy khác nhau.
-- Phiếu chấm vẫn là mẫu tại thời điểm review; chưa có hồ sơ nhóm được chấm hoặc kết quả hội đồng để đối chiếu.
+- Bằng chứng hiện tại gồm các phép tính bằng chương trình và kết quả đối chiếu. Báo cáo giữ trung thực việc chưa ghi nhận bằng chứng tự tính tay riêng.
+- Phiên duyệt chéo Gate 2a đã hoàn tất: nhóm chấm Nhóm Rua 30/30 (`report/team/phieu_cham.md`, PR #18) và nhận kết quả 30/30 từ hội đồng Nhóm Rua (ghi nhận tại `report/team/group_report.md`, PR #19).
 
 ## 5. Công cụ AI đã dùng
 
@@ -64,6 +66,4 @@ Các phép kiểm trên được thực hiện qua công cụ. Phần tự kiể
 
 Về tiến độ, hai PR bảng chi phí và PR code CP4 của tôi đã được merge. Phần kiểm tra bằng chương trình cho kết quả khớp với code của Vỹ và các giá trị đối chiếu của lab. Các nhận xét kiểm số tiếp theo đã được ghi trên GitHub để nhóm đối chiếu khi chốt hồ sơ.
 
-Các số cỡ mẫu đã được đưa đúng vào YAML. Phần còn lại là theo dõi các góp ý về cách đo, kiểm tra hồ sơ launch sau cập nhật và tham gia duyệt chéo. Bằng chứng tự kiểm tay và xác nhận chạy trên máy thứ hai cũng còn thiếu trong báo cáo hiện tại.
-
-Tôi chưa đưa ra tự đánh giá cuối cùng vì phần review hồ sơ và duyệt chéo chưa hoàn tất.
+Các số cỡ mẫu đã được đưa đúng vào YAML và các góp ý kiểm số về cách đo (`created_at`, đếm `request_id` duy nhất, lịch gom mẫu & phút đo thật) đã được nhóm cập nhật vào bản chốt cuối. Nhóm đã hoàn tất duyệt chéo Gate 2a với kết quả 30/30 từ Nhóm Rua. Phần tự kiểm bằng tay riêng không được khai báo quá thực tế trong báo cáo này.
