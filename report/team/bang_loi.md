@@ -43,8 +43,8 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
-| 9 | Do người dùng | Theo dõi `handoff_to_staff` với lý do mã không hợp lệ hằng ngày; cảnh báo nếu quá 2% yêu cầu | Hướng dẫn tìm mã vận đơn hoặc chuyển nhân viên nếu không tra được | Người phụ trách sản phẩm |
+| 9 | Do người dùng | Theo dõi số ca `handoff_to_staff` vì mã không hợp lệ mỗi ngày; cảnh báo khi trên 2% yêu cầu được chuyển vì lý do này | Hướng dẫn tìm mã vận đơn hoặc chuyển nhân viên nếu không tra được | Người phụ trách sản phẩm |
 | 7 | Hệ thống | Đối soát `refund_ledger_write` hằng giờ với thông báo thành công; ngưỡng 0 ca lệch | Chỉ báo hoàn thành khi sổ cái xác nhận; sau 3 lần lỗi thì chuyển nhân viên | Kỹ sư phụ trách trợ lý |
-| 18 | Ngữ cảnh | Theo dõi `ticket_reopened` hằng tuần và kiểm tra các ca nghi hoàn thiếu | Ghi rõ số tiền gốc, tỉ lệ hoàn và phép tính trong thông báo | Trưởng nhóm CSKH |
-| 4 | Giới hạn hệ thống | Đếm `handoff_to_staff` vì thiếu dữ liệu theo tuần và loại yêu cầu | Chuyển nhân viên kèm tóm tắt; không đưa yêu cầu quốc tế vào pilot | Người phụ trách sản phẩm |
+| 18 | Ngữ cảnh | Theo dõi `ticket_reopened` hằng tuần; kiểm tra từng ca có lý do nghi hoàn thiếu, ngưỡng từ 1 ca | Ghi rõ số tiền gốc, tỉ lệ hoàn và phép tính trong thông báo | Trưởng nhóm CSKH |
+| 4 | Giới hạn hệ thống | Đếm `handoff_to_staff` vì thiếu dữ liệu theo tuần và loại yêu cầu; rà soát từ 1 ca | Chuyển nhân viên kèm tóm tắt; không đưa yêu cầu quốc tế vào pilot | Người phụ trách sản phẩm |
 | 17 | Ngầm | Dùng `audit_sample_checked` kiểm tra 100 đơn/tuần với bảng giá hiện hành; cảnh báo nếu từ 1% đơn bị lệch | Cập nhật bộ nhớ đệm khi đổi giá và lưu phiên bản bảng giá | Kế toán trưởng |

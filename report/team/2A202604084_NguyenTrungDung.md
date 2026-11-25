@@ -9,7 +9,7 @@
 
 ## 2. Phần việc phụ trách
 
-- Gắn nhãn độc lập 20 ca lỗi ở nhiệm vụ C.
+- Phụ trách phần nhãn thứ hai và bảng lỗi cho 20 ca ở nhiệm vụ C.
 - Giữ và tổng hợp hồ sơ launch v0 từ kết quả của nhóm.
 
 ## 3. Đóng góp cụ thể
@@ -24,7 +24,7 @@
 
 ## 5. Công cụ AI đã dùng
 
-Dùng Codex để đọc hướng dẫn, đề xuất cách khắc phục và tổng hợp hồ sơ. Cần tự đối chiếu với đề bài, các bảng kết quả và xác nhận của nhóm trước khi nộp.
+Dùng Codex để đọc hướng dẫn, đề xuất cách khắc phục và tổng hợp hồ sơ. Cần đối chiếu lại với đề bài và các bảng kết quả trước khi nộp.
 
 ## 6. Tự đánh giá
 
