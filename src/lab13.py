@@ -232,6 +232,31 @@ def in_nhiem_vu_b(runs, reqs):
               f"Hoà vốn xem lại ≤ {hoa_von_phut:.1f} phút  [simulated]")
 
 
+def in_nhiem_vu_e1(reqs):
+    """In kết quả tính thử 3 chỉ số E1 trên 1.200 yêu cầu (CP5)."""
+    print('\n========== E1 · TÍNH THỬ CHỈ SỐ TRONG ĐỢT CHẠY THỬ (1.200 YÊU CẦU) ==========')
+    chinh_so = int(((reqs['dong_trong_24h'] == 1) & (reqs['mo_lai_trong_7_ngay'] == 0)).sum())
+    chinh_tl = chinh_so / len(reqs) * 100
+
+    xem = reqs[reqs['duoc_xem_lai'] == 1]
+    bo_qua_so = int(xem['quyet_dinh_xem_lai'].isin(['sua', 'bo']).sum())
+    bo_qua_tl = bo_qua_so / len(xem) * 100
+
+    an_toan_so = int((reqs['mo_lai_trong_7_ngay'] == 1).sum())
+    an_toan_tl = an_toan_so / len(reqs) * 100
+
+    reqs_pv = reqs[reqs['loai'].isin(PHAM_VI_PILOT)]
+    mo_lai_pv = (reqs_pv['mo_lai_trong_7_ngay'] == 1).mean() * 100
+    lam_lai_pv = (reqs_pv['ket_qua'] == 'lam_lai').mean() * 100
+
+    print(f"Chỉ số chính (đóng 24h & không mở lại 7 ngày): {chinh_tl:.2f}% ({chinh_so}/{len(reqs)})")
+    print(f"Chỉ số dùng (tỉ lệ sửa + bỏ / được xem lại):   {bo_qua_tl:.2f}% ({bo_qua_so}/{len(xem)})")
+    print(f"Chỉ số an toàn (mở lại trong 7 ngày):          {an_toan_tl:.2f}% ({an_toan_so}/{len(reqs)})")
+    print(f"  Trong phạm vi noi_dia + hang_nang ({len(reqs_pv)} YC): "
+          f"mở lại 7 ngày = {mo_lai_pv:.2f}%, tỉ lệ làm lại = {lam_lai_pv:.2f}%")
+    print("Lưu ý: Đây là chỉ số trong đợt chạy thử (chưa có nhóm đối chứng), không kết luận 'trợ lý đã nâng chỉ số'.")
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
@@ -241,4 +266,4 @@ if __name__ == '__main__':
     # TODO CP4 · Nhiệm vụ D: cỡ mẫu (Lê Khánh Cường phụ trách).
     #   from statsmodels.stats.proportion import proportion_effectsize
     #   from statsmodels.stats.power import NormalIndPower
-    # TODO CP5 · Nhiệm vụ E1: tính thử 3 chỉ số trên 1.200 yêu cầu.
+    in_nhiem_vu_e1(reqs)
