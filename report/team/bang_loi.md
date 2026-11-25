@@ -6,7 +6,7 @@
 
 Người gắn nhãn 1: Phạm Hà Nam · Người gắn nhãn 2: Nguyễn Trung Dũng. Người gắn nhãn 2 đã xem nhãn tham khảo và nhãn người 1; chưa có hai bộ nhãn độc lập.
 
-| Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn đề xuất, chờ thống nhất |
+| Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
 | 1 | Do người dùng | Chờ | Chờ | Do người dùng |
 | 2 | Hệ thống | Chờ | Chờ | Hệ thống |
@@ -29,13 +29,13 @@ Người gắn nhãn 1: Phạm Hà Nam · Người gắn nhãn 2: Nguyễn Trung
 | 19 | Giới hạn hệ thống | Chờ | Chờ | Giới hạn hệ thống |
 | 20 | Hệ thống | Chờ | Chờ | Hệ thống |
 
-**Tỉ lệ đồng thuận:** Chưa tính được vì chưa có hai bộ nhãn độc lập. Nhãn đề xuất dựa trên hướng dẫn trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md`, đang chờ Nam và Dũng xác nhận.
+**Tỉ lệ đồng thuận:** Chưa tính được vì chưa có hai bộ nhãn độc lập. Dũng chốt nhãn thống nhất dựa trên hướng dẫn trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md`, theo quyền Nam đã giao.
 
 ## Quy tắc phân biệt cho các ca không trùng
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
 
-- Chờ hai người gắn nhãn xem lại và xác nhận các nhãn thống nhất.
+- Chưa có bộ nhãn độc lập thứ hai để xác định các ca không trùng.
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 

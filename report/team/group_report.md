@@ -12,7 +12,7 @@ Nhóm đánh giá chi phí, lỗi và kế hoạch pilot của trợ lý hoàn p
 ## 3. Giải pháp
 
 - A–B: tính chi phí và các kịch bản độ nhạy trong `bang_chi_phi.md`.
-- C: phân loại ca lỗi và đề xuất cách khắc phục trong `bang_loi.md`; nhãn thống nhất còn chờ xác nhận.
+- C: phân loại ca lỗi và đề xuất cách khắc phục trong `bang_loi.md`; đã chốt nhãn cuối, nhưng thiếu bộ nhãn độc lập thứ hai.
 - D: đề xuất pilot có đối chứng trong `pilot_plan.yaml`.
 - E: đặc tả chỉ số và rủi ro trong `chi_so.md`, tổng hợp trong `ho_so_launch_v0.md`.
 
@@ -32,7 +32,7 @@ Vai trò, phần việc và bằng chứng của từng thành viên được gh
 
 ## 7. Hạn chế và hướng cải thiện
 
-Thời gian xem lại và làm lại là `simulated`; cần đo thực tế trong pilot. Hai bộ nhãn lỗi độc lập và nhãn thống nhất chưa được xác nhận; cần hoàn thiện trước khi đánh giá CP3. Chạy thử chưa có đối chứng nên không kết luận tác động của trợ lý.
+Thời gian xem lại và làm lại là `simulated`; cần đo thực tế trong pilot. Nhóm chưa có hai bộ nhãn lỗi độc lập, nên chưa tính được tỉ lệ đồng thuận. Chạy thử chưa có đối chứng nên không kết luận tác động của trợ lý.
 
 ## 8. Tài liệu tham khảo
 
