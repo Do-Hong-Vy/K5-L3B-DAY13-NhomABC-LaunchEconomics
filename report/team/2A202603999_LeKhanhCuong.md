@@ -9,7 +9,7 @@ Báo cáo ghi lại phần việc của tôi trong Lab 13, tính đến ngày 25
 - Email: 26ai.cuonglk2@vinuni.edu.vn.
 - GitHub: `lekhanhcuongvk1`.
 - Nhóm: NhomABC; lớp: L3B.
-- Vai: người kiểm số CP1–CP2; nhận phần viết code cỡ mẫu CP4 theo phân công đổi vai trong `TASK.md`.
+- Vai: người kiểm số CP1–CP2; nhận phần viết code cỡ mẫu CP4 theo phân công đổi vai trong `task.md`.
 
 ## 2. Phần việc phụ trách
 

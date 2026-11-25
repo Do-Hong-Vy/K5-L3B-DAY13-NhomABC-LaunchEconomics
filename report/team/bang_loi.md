@@ -35,7 +35,12 @@ Người gắn nhãn 1: Phạm Hà Nam · Người gắn nhãn 2: Nguyễn Trung
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
 
-- Chưa có bộ nhãn độc lập thứ hai để xác định các ca không trùng.
+- Chưa có bộ nhãn độc lập thứ hai để xác định các ca không trùng giữa hai người gắn nhãn.
+- Quy tắc phân biệt theo nguyên nhân gốc nhóm áp dụng cho các ca dễ lẫn khi chốt cột `Nhãn thống nhất`:
+  - **Do người dùng vs Hệ thống (ca 6, 9):** gốc lỗi do khách chọn sai mục hoặc nhập sai mã thì gắn `Do người dùng`; việc trợ lý chưa tự gợi ý là hành động cải thiện ở cột khắc phục.
+  - **Giới hạn hệ thống (ca 13):** yêu cầu ngoài phạm vi hoặc thiếu dữ liệu nguồn luôn là `Giới hạn hệ thống`, kể cả khi trợ lý xử lý tình huống chuyển tiếp chưa tốt.
+  - **Hệ thống vs Ngầm (ca 8, 12, 15):** sai đã lộ ra cho khách hoặc nhân viên thấy (ca 8, 15) là `Hệ thống`; chỉ gắn `Ngầm` khi không ai phát hiện cho tới khi kiểm tra mẫu hoặc đối soát chi phí (ca 5, 12, 17).
+  - **Ngữ cảnh (ca 18):** số tiền hoàn đúng chính sách nhưng giả định khách tự hiểu cách tính không khớp hoàn cảnh thực tế thì gắn `Ngữ cảnh`.
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 
@@ -43,8 +48,8 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
-| 9 | Do người dùng | Theo dõi số ca `handoff_to_staff` vì mã không hợp lệ mỗi ngày; cảnh báo khi trên 2% yêu cầu được chuyển vì lý do này | Hướng dẫn tìm mã vận đơn hoặc chuyển nhân viên nếu không tra được | Người phụ trách sản phẩm |
-| 7 | Hệ thống | Đối soát `refund_ledger_write` hằng giờ với thông báo thành công; ngưỡng 0 ca lệch | Chỉ báo hoàn thành khi sổ cái xác nhận; sau 3 lần lỗi thì chuyển nhân viên | Kỹ sư phụ trách trợ lý |
-| 18 | Ngữ cảnh | Theo dõi `ticket_reopened` hằng tuần; kiểm tra từng ca có lý do nghi hoàn thiếu, ngưỡng từ 1 ca | Ghi rõ số tiền gốc, tỉ lệ hoàn và phép tính trong thông báo | Trưởng nhóm CSKH |
-| 4 | Giới hạn hệ thống | Đếm `handoff_to_staff` vì thiếu dữ liệu theo tuần và loại yêu cầu; rà soát từ 1 ca | Chuyển nhân viên kèm tóm tắt; không đưa yêu cầu quốc tế vào pilot | Người phụ trách sản phẩm |
-| 17 | Ngầm | Dùng `audit_sample_checked` kiểm tra 100 đơn/tuần với bảng giá hiện hành; cảnh báo nếu từ 1% đơn bị lệch | Cập nhật bộ nhớ đệm khi đổi giá và lưu phiên bản bảng giá | Kế toán trưởng |
+| 9 | Do người dùng | Theo dõi `handoff_to_staff` có `reason = ma_khong_hop_le` theo `trace_id` hằng ngày; cảnh báo khi > 2% tổng yêu cầu/ngày | Tự nhận diện mã sàn TMĐT để tra mã vận đơn; không tra được thì hướng dẫn kèm ảnh và chuyển nhân viên | PM trợ lý hoàn phí |
+| 7 | Hệ thống | Đối soát `refund_ledger_write` hằng giờ theo `trace_id` với thông báo "đã hoàn"; ngưỡng cảnh báo 0 ca lệch | Chỉ báo hoàn thành khi sổ cái trả `ok` kèm `idempotency_key`; sau 3 lần lỗi báo "đang xử lý" và chuyển nhân viên | Kỹ sư trưởng agent |
+| 18 | Ngữ cảnh | Theo dõi `ticket_reopened` có lý do nghi hoàn thiếu hằng tuần theo `trace_id` (nhưng kiểm tra thấy đúng chính sách); rà soát từ ≥ 1 ca/tuần | Mẫu tin nhắn luôn ghi rõ số tiền gốc, tỉ lệ hoàn và phép tính cụ thể (ví dụ `30.000 đ × 50% = 15.000 đ`) | Trưởng nhóm CSKH |
+| 4 | Giới hạn hệ thống | Đếm `handoff_to_staff` có `reason = thieu_du_lieu` theo tuần và theo `loai` qua `trace_id`; rà soát từ ≥ 1 ca ở phạm vi pilot | Chuyển nhân viên kèm tóm tắt ngữ cảnh; loại `quoc_te` và `doi_tac` khỏi phạm vi pilot | PM trợ lý hoàn phí |
+| 17 | Ngầm | Dùng `audit_sample_checked` kiểm tra mẫu 100 đơn/tuần theo `trace_id` đối chiếu bảng giá hiện hành; cảnh báo khi ≥ 1% đơn lệch tiền | Xoá bộ nhớ đệm ngay khi có bảng giá mới và lưu `phien_ban_bang_gia` vào trace | Kế toán trưởng |
