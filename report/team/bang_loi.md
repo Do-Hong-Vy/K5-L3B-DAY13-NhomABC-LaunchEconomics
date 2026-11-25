@@ -2,6 +2,18 @@
 
 20 ca lỗi nằm trong `docs/Ngay13_Lab13_De_bai_hoc_vien.docx`. Năm loại theo Google PAIR: **Do người dùng · Hệ thống · Ngữ cảnh · Giới hạn hệ thống · Ngầm**. Gắn nhãn theo nguyên nhân gốc, không theo chỗ cần sửa.
 
+## Nhãn tham khảo
+
+Tổng hợp từ mục “Nhãn tham khảo cho 20 ca” trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md`, có dùng Codex để đọc và ghi lại. Đây là đáp án tham khảo, không phải bằng chứng hai người đã gắn nhãn độc lập.
+
+| Loại lỗi | Ca |
+| --- | --- |
+| Do người dùng | 1, 6, 9, 14 |
+| Hệ thống | 2, 7, 8, 15, 20 |
+| Ngữ cảnh | 3, 10, 16, 18 |
+| Giới hạn hệ thống | 4, 11, 13, 19 |
+| Ngầm | 5, 12, 17 |
+
 ## Hai bộ nhãn độc lập
 
 Người gắn nhãn 1: ... · Người gắn nhãn 2: ... (gắn trong 8 phút, không trao đổi)
