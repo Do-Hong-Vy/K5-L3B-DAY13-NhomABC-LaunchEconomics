@@ -5,7 +5,7 @@
 - Tên nhóm: NhomABC
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY13-NhomABC-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt: https://github.com/Do-Hong-Vy/K5-L3B-DAY13-NhomABC-LaunchEconomics | Nhánh: `main` | Commit chốt: *(cập nhật khi nộp)*
+- URL repo, nhánh nộp, commit chốt: https://github.com/Do-Hong-Vy/K5-L3B-DAY13-NhomABC-LaunchEconomics | Nhánh: `main` | Commit chốt: `HEAD` nhánh `main` (merge PR #19 `vy/final-submission-qa`)
 
 ## Thành viên
 
@@ -50,25 +50,25 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 ### Bằng chứng
 
-- PR #1 (`c0be8ea`), PR #2 (`f18aa18`), PR #3 (`50e0e1d`), PR #4 (`9f76372`), commit `52b15a6` (`task.md`, `TEAM.md`), nhánh `vy/pre-gate-polish`.
-- File: `src/lab13.py`, `report/team/chi_so.md`, `report/team/2A202604107_DoHongVy.md`, `task.md`, `TEAM.md`.
+- PR #1 (`c0be8ea`), PR #2 (`f18aa18`), PR #3 (`50e0e1d`), PR #4 (`9f76372`), PR #15 (`ab4bbe2`), PR #16 (`28099ae`), PR #17 (`7f4dcfd`), PR #18 (`05cefb1`), PR #19 (`vy/final-submission-qa`), commit `52b15a6`.
+- File: `src/lab13.py`, `report/team/chi_so.md`, `report/team/phieu_cham.md`, `report/team/2A202604107_DoHongVy.md`, `task.md`, `TEAM.md`.
 
 ## PhamHaNam-2A202604023
 
 ### Phần việc phụ trách
 
-- Người gắn nhãn 1: đọc đề, theo dõi điều kiện "Xong khi"; gắn nhãn 20 ca độc lập ở CP3; hoàn thiện `report/team/pilot_plan.yaml` ở CP4; ghi `report/team/phieu_cham.md` khi duyệt chéo Gate 2a.
+- Người gắn nhãn 1: đọc đề, theo dõi điều kiện "Xong khi"; gắn nhãn 20 ca độc lập ở CP3; hoàn thiện `report/team/pilot_plan.yaml` ở CP4; phối hợp duyệt chéo Gate 2a.
 
 ### Đóng góp cụ thể
 
 - Gắn nhãn độc lập 20/20 ca lỗi theo 5 loại Google PAIR dựa trên nguyên nhân gốc ở cột `Nhãn người 1` của `report/team/bang_loi.md`.
-- Hoàn thiện `report/team/pilot_plan.yaml`: đủ 5 câu D1a–e, 5 câu D2, nêu rõ đánh đổi MDE 6 điểm / power `0,6417`, baseline mở lại 7 ngày (`4,25%` / `3,97%`) và 3 luật dừng đủ 4 vế `NẾU – TRONG – THÌ – KHÔNG THÌ`.
-- Hoàn thiện báo cáo cá nhân `report/team/2A202604023_PhamHaNam.md`; phụ trách ghi phiếu chấm duyệt chéo Gate 2a (`report/team/phieu_cham.md`).
+- Hoàn thiện `report/team/pilot_plan.yaml`: đủ 5 câu D1a–e, 5 câu D2, nêu rõ đánh đổi MDE 6 điểm / power `0,6417`, baseline mở lại 7 ngày (`4,25%` / `3,97%`) và các luật dừng đủ 4 vế `NẾU – TRONG – THÌ – KHÔNG THÌ`.
+- Hoàn thiện báo cáo cá nhân `report/team/2A202604023_PhamHaNam.md` và tham gia duyệt chéo Gate 2a.
 
 ### Bằng chứng
 
 - PR #5 (`e3be9e9`, commit `1a8cf91`), commit `b084e1a` (`pilot_plan.yaml`), PR #14 (`c945551`, báo cáo cá nhân).
-- File: `report/team/bang_loi.md`, `report/team/pilot_plan.yaml`, `report/team/2A202604023_PhamHaNam.md`, `report/team/phieu_cham.md` *(cập nhật sau 17:45)*.
+- File: `report/team/bang_loi.md`, `report/team/pilot_plan.yaml`, `report/team/2A202604023_PhamHaNam.md`.
 
 ## NguyenTrungDung-2A202604084
 
