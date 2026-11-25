@@ -24,7 +24,7 @@ Kết quả nhóm nhận được từ hội đồng Gate 2a: chưa có thông t
 
 ## 5. Khó khăn và cách xử lý
 
-Mẫu chỉ có 40 nhân viên, nên chia theo nhân viên không đủ power 0,80 để phát hiện chênh lệch 5 điểm. Kế hoạch chấp nhận mức 6 điểm và nêu rõ đánh đổi; nhóm cần rà soát ý nghĩa các vế “không thì” trong luật dừng trước pilot.
+Mẫu chỉ có 40 nhân viên, nên chia theo nhân viên không đủ power 0,80 để phát hiện chênh lệch 5 điểm. Kế hoạch chấp nhận mức chênh 6 điểm (`power ≈ 0,64` ở mức 5 điểm), chốt 3 luật dừng đủ 4 vế và yêu cầu bật đủ 10 event có `trace_id` để thay phút giả lập bằng phút đo thật từ tuần 1 của pilot.
 
 ## 6. Tổng hợp đóng góp
 
