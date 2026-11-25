@@ -71,7 +71,7 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 ### Đóng góp cụ thể
 
-- Tổng hợp hồ sơ launch; ghi nhãn tham khảo và đề xuất cách khắc phục lỗi với hỗ trợ của Codex.
+- Tổng hợp hồ sơ launch và đề xuất cách khắc phục lỗi với hỗ trợ của Codex.
 
 ### Bằng chứng
 
