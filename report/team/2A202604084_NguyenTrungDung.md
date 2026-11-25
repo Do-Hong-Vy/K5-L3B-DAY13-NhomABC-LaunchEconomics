@@ -14,12 +14,12 @@
 
 ## 3. Đóng góp cụ thể
 
-- Tổng hợp kết quả hiện có vào hồ sơ launch và ghi rõ phần nhóm còn thiếu.
+- Tổng hợp kết quả vào hồ sơ launch và chuẩn bị báo cáo nhóm.
 - Đề xuất cách khắc phục cho 5 loại lỗi; phần nhãn cần được xem lại và xác nhận.
 
 ## 4. Bằng chứng
 
-- `report/team/ho_so_launch_v0.md`: hồ sơ 7 mục theo kết quả nhóm hiện có.
+- `report/team/ho_so_launch_v0.md` và `report/team/group_report.md`: tổng hợp kết quả và điều kiện pilot.
 - `report/team/bang_loi.md`: 5 đề xuất khắc phục; phần nhãn đang chờ xác nhận.
 
 ## 5. Công cụ AI đã dùng
